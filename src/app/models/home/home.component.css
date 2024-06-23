@@ -1,0 +1,69 @@
+.carousel{
+    background-image: url("../.././../assets/images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 5%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.slogant{
+    font-family: Degular, sans-serif;
+    font-weight: 800;
+    margin-bottom: 2%;
+    letter-spacing: 2px;
+    color: white;
+    font-size: 44px;
+    text-transform: uppercase;
+}
+
+.btn-inscription{
+    text-transform: uppercase;
+    background-color: #F1EF17;
+    color: #2E2C26;
+    font-size: 20px;
+    font-weight: 700;
+    border: 1px solid;
+    border-radius: 100px;
+}
+
+.presentation{
+    margin: 2%;
+}
+
+.presentation-titre{
+    font-size: 32px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.caracteristique-subtitle{
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.caracteristique-title{
+    font-size:20px;
+    font-weight: 500;
+}
+
+.contact-msg-title{
+    font-size: 28px;
+    font-family: 'Suisse Intl', Helvetica, Arial, sans-serif;
+    font-weight: 800;
+}
+
+.contact-form{
+    padding-top: 7%;
+    padding-bottom: 7%;
+    padding-left: 11%;
+    padding-right: 9%;
+    margin: 0;
+}
+
+.contact-image{
+    background-image: url("../../../assets/images/boxing.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

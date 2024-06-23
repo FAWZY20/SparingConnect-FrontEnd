@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+.backgound-registration{
+    background-image: url("assets/images/boxing.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.btn-registration{
+    width: 100%;
+    border-radius: 100px !important;
+    background-color: #2E2C2C !important;
+    margin-bottom: 3%;
+    color: white !important;
+}
+
+.form-register{
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 10%;
+}
+
+.form-input-bloc{
+    margin-bottom: 4%;
+}
+.logo-registration{
+    display: flex ;
+    justify-content: center;
+}

@@ -1,0 +1,23 @@
+.navbar {
+    background-color:#2E2C2C !important;
+    padding: 0;
+}
+
+#navbarNav, .item-bloc {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.item-bloc{
+  justify-content: end;
+}
+
+.nav-item{
+    margin-right: 20px;
+}
+
+.nav-link{
+    color: white !important;
+    font-weight: 700;
+}
