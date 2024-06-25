@@ -6,14 +6,13 @@
                     alt="logo">
             </div>
             <div class="form-register">
-                <form>
+                <form (ngSubmit)="onSubmit()" #userForm="ngForm">
                     <div class="form-input-bloc">
-                        <input class="form-control form-control-lg input-registration" type="email"
-                            placeholder="E-mail">
+                        <input type="email"  class="form-control form-control-lg input-registration" name="email" placeholder="E-mail" [(ngModel)]="utilisateur.mail" required #mail="ngModel">
                     </div>
                     <div class="form-input-bloc">
-                        <input class="form-control form-control-lg input-registration" type="password"
-                            placeholder="Mot de passe">
+                        <input class="form-control form-control-lg input-registration" type="password" name="password"
+                            placeholder="Mot de passe" [(ngModel)]="utilisateur.password" required #password="ngModel">
                     </div>
                     <div class="form-input-bloc">
                         <div>
