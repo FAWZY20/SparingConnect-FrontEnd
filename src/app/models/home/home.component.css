@@ -17,6 +17,15 @@
     text-transform: uppercase;
 }
 
+.caracteristique-bloc{
+    display: flex;
+    flex-direction: row;
+}
+
+.caracteristique-image{
+    margin-right: 3%;
+}
+
 .btn-inscription{
     text-transform: uppercase;
     background-color: #F1EF17;

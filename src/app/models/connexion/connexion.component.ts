@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavigationService } from 'src/app/services/navigation-service.service';
 
 @Component({
   selector: 'app-connexion',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent {
+
+  constructor(
+    private navigation: NavigationService
+  ){}
+
+  toSubscribe(page: string) {
+    this.navigation.moveNewPage(page)
+  }
 
 }

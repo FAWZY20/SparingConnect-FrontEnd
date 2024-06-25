@@ -3,8 +3,8 @@
         <h1 class="slogant">Trouvez facilement des sparring<br /> partners à votre niveau.</h1>
     </div>
     <div>
-        <a href="registrer">
-            <button type="button" class="btn btn-warning btn-inscription">COMMENCER L'ESSAI GRATUIT</button>
+        <a routerLink="/inscription">
+            <button type="button" class="btn btn-warning btn-inscription" >COMMENCER L'ESSAI GRATUIT</button>
         </a>
     </div>
 </div>
@@ -23,29 +23,49 @@
                 </p>
                 <div class="caracteristique">
                     <p class="caracteristique-title">CARACTÉRISTIQUES DE L'APPLICATION</p>
-                    <div class="caracteristique-partenaire">
-                        <p class="caracteristique-subtitle">Trouvez le sparring partner idéal</p>
-                        <p class="caracteristique-text">
-                            Notre algorime vous connecte à des partenaires adaptés pour vous.
-                        </p>
+                    <div class="caracteristique-bloc">
+                        <div class="caracteristique-image">
+                            <img src="../../../assets/icon/sparing.png" alt="" height="50" width="50">
+                        </div>
+                        <div class="caracteristique-bloc-text">
+                            <p class="caracteristique-subtitle">Trouvez le sparring partner idéal</p>
+                            <p class="caracteristique-text">
+                                Notre algorime vous connecte à des partenaires adaptés pour vous.
+                            </p>
+                        </div>
                     </div>
-                    <div class="caracteristique-localisation">
-                        <p class="caracteristique-subtitle">Recherchez par localisation</p>
-                        <p class="caracteristique-text">
-                            Trouvez des sparring partners locaux pour des sessions régulières.
-                        </p>
+                    <div class="caracteristique-bloc">
+                        <div class="caracteristique-image">
+                            <img src="../../../assets/icon/position.png" height="50" width="50" alt="">
+                        </div>
+                        <div class="caracteristique-bloc-text">
+                            <p class="caracteristique-subtitle">Recherchez par localisation</p>
+                            <p class="caracteristique-text">
+                                Trouvez des sparring partners locaux pour des sessions régulières.
+                            </p>
+                        </div>
                     </div>
-                    <div class="caracteristique-niveau">
-                        <p class="caracteristique-subtitle">Filtrez par niveau et style</p>
-                        <p>
-                            Trouvez des partenaires correspondant à vos besoins d'entraînement.
-                        </p>
+                    <div class="caracteristique-bloc">
+                        <div class="caracteristique-image">
+                            <img src="../../../assets/icon/niveaux.png" alt="" height="50" width="50">
+                        </div>
+                        <div class="caracteristique-bloc-text">
+                            <p class="caracteristique-subtitle">Filtrez par niveau et style</p>
+                            <p>
+                                Trouvez des partenaires correspondant à vos besoins d'entraînement.
+                            </p>
+                        </div>
                     </div>
-                    <div class="caracteristique-sessions ">
-                        <p class="caracteristique-subtitle">Organisez vos sessions facilement</p>
-                        <p>
-                            Planifiez vos sessions de sparring facilement avec des rappels.
-                        </p>
+                    <div class="caracteristique-bloc">
+                        <div class="caracteristique-image">
+                            <img src="../../../assets/icon/horloge.png" alt="" height="50" width="50">
+                        </div>
+                        <div class="caracteristique-bloc-text">
+                            <p class="caracteristique-subtitle">Organisez vos sessions facilement</p>
+                            <p>
+                                Planifiez vos sessions de sparring facilement avec des rappels.
+                            </p>
+                        </div>
                     </div>
                     <div class="caracteristique-question">
                         <p>
@@ -75,13 +95,14 @@
                     entraînements directement dans votre boîte de réception.
                 </p>
                 <div class="connexion-home">
-                    <form >
+                    <form>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Ton E-mail" field="*{mail}">
+                            <input type="email" class="form-control" id="email" aria-describedby="email"
+                                placeholder="Ton E-mail" field="*{mail}">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="password"
-                                placeholder="Votre mot de passe " field="*{password}">
+                            <input type="password" class="form-control" id="password" placeholder="Votre mot de passe "
+                                field="*{password}">
                         </div>
                         <button type="submit" class="btn btn-connexion" value="Register">SE CONNECTER</button>
                     </form>

@@ -2,18 +2,26 @@
     <div class="row">
         <div class="col-6">
             <div class="logo-registration">
-                <img src="../../../assets/images/logo.png" width="300" height="300" class="d-inline-block align-top" alt="logo">
+                <img src="../../../assets/images/logo.png" width="300" height="300" class="d-inline-block align-top"
+                    alt="logo">
             </div>
             <div class="form-register">
                 <form>
                     <div class="form-input-bloc">
-                        <input class="form-control form-control-lg input-registration" type="email" placeholder="E-mail">
+                        <input class="form-control form-control-lg input-registration" type="email"
+                            placeholder="E-mail">
                     </div>
                     <div class="form-input-bloc">
-                        <input class="form-control form-control-lg input-registration" type="password" placeholder="Mot de passe">
+                        <input class="form-control form-control-lg input-registration" type="password"
+                            placeholder="Mot de passe">
                     </div>
                     <div class="form-input-bloc">
-                        <button type="submit" class="btn  btn-registration" value="Register">SE CONNECTER</button>
+                        <div>
+                            <button type="submit" class="btn  btn-registration" value="Register">SE CONNECTER</button>
+                        </div>
+                        <div>
+                            <p>Vous n'avez pas de compte ?  <span><button type="button" class="btn btn-light" (click)="toSubscribe('inscription')">S'inscrire</button></span></p>
+                        </div>
                     </div>
                 </form>
             </div>
