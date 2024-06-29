@@ -23,7 +23,7 @@ export class ConnexionComponent {
 
   onSubmit() {
     this.userService.login(this.utilisateur).subscribe(() => {
-      this.route.navigate(['/admin']);
+      this.route.navigate(['admin']);
     })
   }
 

@@ -5,26 +5,25 @@
                 <img src="../../../assets/images/logo.png" width="300" height="300" class="d-inline-block align-top" alt="logo">
             </div>
             <div class="form-register">
-                <form>
+                <form (ngSubmit)="onSubmit()"  #registerForm="ngForm">
                     <div class="form-input-bloc">
-                        <input class="form-control form-control-lg input-registration" type="text" placeholder="Prénom">
+                        <input class="form-control form-control-lg input-registration" type="text" placeholder="Prénom" name="prenom" [(ngModel)]="utilisateur.prenom" required #prenom="ngModel">
                     </div>
                     <div class="form-input-bloc">
                         <input class="form-control form-control-lg input-registration" type="text"
-                            placeholder="Nom de famille">
+                            placeholder="Nom de famille" name="nom" [(ngModel)]="utilisateur.nom" required #nom="ngModel">
                     </div>
                     <div class="form-input-bloc">
                         <input class="form-control form-control-lg input-registration" type="email"
-                            placeholder="E-mail">
+                            placeholder="E-mail" name="mail" [(ngModel)]="utilisateur.mail" required #mail="ngModel">
                     </div>
                     <div class="form-input-bloc">
                         <input class="form-control form-control-lg input-registration" type="password"
-                            placeholder="Mot de passe">
+                            placeholder="Mot de passe" name="password" [(ngModel)]="utilisateur.password" required #password="ngModel">
                     </div>
                     <div class="form-btn-bloc">
                         <div>
-                            <button type="submit" class="btn  btn-registration" value="Register">Créer un
-                                compte</button>
+                            <button type="submit" class="btn  btn-registration" value="Register">Créer un compte</button>
                         </div>
                         <div>
                             <p>Vous avez déjà un compte? <span><button type="button" class="btn btn-light" (click)="toConnect('connexion')">Se connecter</button></span></p>
