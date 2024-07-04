@@ -30,10 +30,10 @@ export class AdminComponent {
   ngOnInit(){
     this.userService.decodeToken().subscribe(decodedData => {
       if (decodedData) {
-        this.data = decodedData
+        this.utilisateur = decodedData
       }
     });
-    this.profil = this.profilSerice.checkProfil(this.data?.id);
+    this.profil = this.profilSerice.checkProfil(this.data.id);
   }
 
 }

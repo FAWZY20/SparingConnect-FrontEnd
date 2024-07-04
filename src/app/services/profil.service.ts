@@ -30,11 +30,11 @@ export class ProfilService {
     })
   }
 
-  public checkProfil(id: number): Observable<boolean> {
+  public checkProfil(id: string): Observable<boolean> {
     return this.http.get<Profil>(this.usersUrl + `/getProfil/${id}`).pipe(
       map(res => res != null),
       catchError(error => {
-        console.error(error); // Log l'erreur
+        console.error(error);
         return of(false);
       })
     );
