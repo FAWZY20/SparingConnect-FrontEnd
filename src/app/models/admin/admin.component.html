@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="message-bloc row">
             <div class="message">
-                <h2 class="message">Nous sommes contents de vous revoir, {{data.prenom}} 👋</h2>
+                <h2 class="message">Nous sommes contents de vous revoir, {{data?.prenom}} 👋</h2>
             </div>
             <div *ngIf="profil; then thenBlock else elseBlock"></div>
             <ng-template #thenBlock>

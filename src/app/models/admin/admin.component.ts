@@ -33,7 +33,7 @@ export class AdminComponent {
         this.data = decodedData
       }
     });
-    this.profil = this.profilSerice.checkProfil(this.data.id);
+    this.profil = this.profilSerice.checkProfil(this.data?.id);
   }
 
 }
