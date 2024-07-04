@@ -1,1 +1,52 @@
-<p>admin works!</p>
+<section>
+    <div class="container-fluid">
+        <div class="message-bloc row">
+            <div class="message">
+                <h2 class="message">Nous sommes contents de vous revoir, {{data.prenom}} 👋</h2>
+            </div>
+            <div *ngIf="profil; then thenBlock else elseBlock"></div>
+            <ng-template #thenBlock>
+                <div class="ajout-info col-7">
+                    <div class="ajout-info-text">
+                        <div class="bloc-img">
+                            <img class="img-gant" src="../../../assets/icon/gant.png" width="50" height="50" alt="">
+                        </div>
+                        <div class="bloc-text">
+                            <div>
+                                <p class="ajout-info-title">Adaptez SparingConnect à vos besoins</p>
+                            </div>
+                            <div>
+                                <p class="ajout-info-subtitle">Parlez-nous un peu de votre experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button" (click)="toRegisterProfil('adminProfil')" class="btn btn-light">Ajoutez vos
+                            informations</button>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template #elseBlock>
+                <div class="ajout-info col-7">
+                    <div class="ajout-info-text">
+                        <div class="bloc-img">
+                            <img class="img-gant" src="../../../assets/icon/gant.png" width="50" height="50" alt="">
+                        </div>
+                        <div class="bloc-text">
+                            <div>
+                                <p class="ajout-info-title">Adaptez SparingConnect à vos besoins</p>
+                            </div>
+                            <div>
+                                <p class="ajout-info-subtitle">Parlez-nous un peu de votre experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button" (click)="toRegisterProfil('profilUpdate')" class="btn btn-light">Modifier vos
+                            informations</button>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</section>

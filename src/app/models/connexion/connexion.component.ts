@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { of, tap } from 'rxjs';
 import { Utilisateur } from 'src/app/dataModels/utilisateur';
 import { NavigationService } from 'src/app/services/navigation-service.service';
 import { UserService } from 'src/app/services/user.service';
@@ -22,8 +23,13 @@ export class ConnexionComponent {
   }
 
   onSubmit() {
-    this.userService.login(this.utilisateur).subscribe(() => {
-      this.route.navigate(['admin']);
+    this.userService.login(this.utilisateur).subscribe((res) => {
+      if (res != null) {
+        this.route.navigate(['admin']);
+      }else{
+        localStorage.clear()
+        this.route.navigate(['connexion']);
+      }
     })
   }
 
