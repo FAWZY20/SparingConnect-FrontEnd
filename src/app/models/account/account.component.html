@@ -1,0 +1,63 @@
+<div class="container edit">
+    <div class="row">
+        <div class="col-3 menu-edit">
+            <app-header-setting></app-header-setting>
+        </div>
+        <div class="col-9 edit-bloc-form">
+            <div class="btn-modif-profil">
+                <p>Besoin de mettre à jour votre profil public ? <span><a href="">Accéder à mon profil</a></span></p>
+            </div>
+            <hr />
+            <div class="form-account">
+                <form (ngSubmit)="onSubmit()" #editAccount="ngForm">
+                    <div class="input-bloc">
+                        <div class="label-bloc col-4">
+                            <label for="nom">Nom</label>
+                        </div>
+                        <div class="input col-6">
+                            <input class="form-control" [placeholder]="utilisateur.nom" id="nom" type="text" name="nom" [(ngModel)]="utilisateur.nom" required #nom="ngModel">
+                        </div>
+                    </div>
+                    <div class="input-bloc">
+                        <div class="label-bloc col-4">
+                            <label for="prenom">Prenom</label>
+                        </div>
+                        <div class="input col-6">
+                            <input class="form-control" [placeholder]="utilisateur.prenom" id="prenom" type="text" name="prenom" [(ngModel)]="utilisateur.prenom" required #prenom="ngModel">
+                        </div>
+                    </div>
+                    <div class="input-bloc">
+                        <div class="label-bloc col-4">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input col-6">
+                            <input class="form-control" [placeholder]="utilisateur.mail"  id="email" type="email" name="email" [(ngModel)]="utilisateur.mail" required #mail="ngModel">
+                        </div>
+                    </div>
+                    <div class="btn-save">
+                        <button type="submit" class="btn btn-dark">Sauvegarder</button>
+                    </div>
+                </form>
+            </div>
+            <hr />
+            <div class="delete-account">
+                <div class="delete-bloc">
+                    <div class="delete-account-title col-4">
+                        <p>DÉSACTIVATION DU COMPTE</p>
+                    </div>
+                    <div class="delete-account-text col-6">
+                        <p>Que se passe-t-il lorsque vous désactivez votre compte ?</p>
+                        <ul>
+                            <li>Votre profil ne serrat plus affichés sur Fiverr. </li>
+                            <li>Les conversations actives seront supprimée. </li>
+                            <li>Vous ne pourrez pas réactiver votre compte. </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="btn-save">
+                    <button type="submit" class="btn btn-dark">Supprimer le compte</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

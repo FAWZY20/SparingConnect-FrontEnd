@@ -11,7 +11,6 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-  utilisateur: Utilisateur
   data: any
   profil!: Observable<boolean>;
 
@@ -19,9 +18,7 @@ export class AdminComponent {
     private userService: UserService,
     private profilSerice: ProfilService,
     private navigation: NavigationService
-  ){
-    this.utilisateur = new Utilisateur();
-  }
+  ){}
 
   toRegisterProfil(page: string) {
     this.navigation.moveNewPage(page)
@@ -30,7 +27,7 @@ export class AdminComponent {
   ngOnInit(){
     this.userService.decodeToken().subscribe(decodedData => {
       if (decodedData) {
-        this.utilisateur = decodedData
+        this.data = decodedData
       }
     });
     this.profil = this.profilSerice.checkProfil(this.data.id);

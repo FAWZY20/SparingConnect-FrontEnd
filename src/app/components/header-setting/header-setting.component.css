@@ -1,0 +1,10 @@
+.header-setting ul{
+    list-style: none;
+}
+.header-setting a{
+    color: black;
+    font-weight: 700;
+}
+.header-setting li{
+    margin-bottom: 2%;
+}

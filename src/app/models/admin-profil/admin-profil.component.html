@@ -1,32 +1,43 @@
 <div class="container">
     <div class="row bloc-profil-info">
         <form (ngSubmit)="onSubmit()" #profilform="ngForm">
+            <div class="text-bloc-form">
+                <div class="img-bloc-form">
+                    <img src="../../../assets/images/gant.png" height="70" width="80" alt="">
+                </div>
+                <div class="text-form">
+                    <p class="text-form-titre">Personnalisez votre expérience de sparing</p>
+                    <p class="text-form-text">Plus nous en savons sur vous, mieux nous pouvons adapter nos recommandations et
+                        vous faire découvrir ce que font les autre sparing parenaire.</p>
+                </div>
+            </div>
+            <hr/>
             <div class="question-bloc">
                 <div class="question">
                     <p>Quel sport de combat pratiquiez-vous ?</p>
                 </div>
-                <div>
-                    <select class="form-select" aria-label="Default select example" [(ngModel)]="profil.sport" required  #sport="ngModel">
-                        <option selected>Choisissez votre sport de combat</option>
+                <div class="form-group col-5">
+                    <select class="form-control" id="exampleFormControlSelect1"name="sport"
+                        [(ngModel)]="profil.sport" required #sport="ngModel">
                         <option value="1">Kick Boxing</option>
                         <option value="2">Boxe Thailandaise</option>
                         <option value="3">Boxe Anglaise</option>
                         <option value="3">MMA</option>
                         <option value="3">Lute</option>
                         <option value="3">JJB</option>
-                      </select>
+                    </select>
                 </div>
             </div>
             <div class="question-bloc">
                 <div class="question">
                     <p>Quel est votre poid ?</p>
                 </div>
-                <div>
-                    <div>
-                        <input class="form-control" type="text" name="poid" [(ngModel)]="profil.poid" required
+                <div  class="poid-bloc">
+                    <div class="poid-input col-3">
+                        <input class="form-control" type="number" min="0" name="poid" [(ngModel)]="profil.poid" required
                             #poid="ngModel">
                     </div>
-                    <div>
+                    <div class="poid-mesure">
                         <p>Kg</p>
                     </div>
                 </div>
@@ -35,8 +46,8 @@
                 <div class="question">
                     <p>Quel est votre niveau dans ce sport ?</p>
                 </div>
-                <div>
-                    <select class="form-select" aria-label="Default select example" name="niveau"
+                <div class="form-group col-5">
+                    <select class="form-control" id="exampleFormControlSelect1" name="niveau"
                         [(ngModel)]="profil.niveaux" required #niveaux="ngModel">
                         <option value="Débutan">Débutan</option>
                         <option value="Intermédiaire">Intermédiaire</option>
@@ -45,8 +56,8 @@
                     </select>
                 </div>
             </div>
-            <div class="question-bloc">
-                <input type="submit">
+            <div class="question-submit-bloc">
+                <button type="submit" class="btn btn-dark">Sauvegarder</button>
             </div>
         </form>
     </div>

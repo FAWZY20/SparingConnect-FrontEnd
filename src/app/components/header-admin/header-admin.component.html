@@ -35,8 +35,8 @@
                     <img src="../../../assets/images/user.jpg" class="icon-user-picture" height="40" width="40">
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Profil</a>
+                    <a class="dropdown-item" [routerLink]="['/edit/account']">Paramètres</a>
                     <a (click)="Disconnect()" class="dropdown-item" href="#">Se Déconnecter</a>
                 </div>
             </div>

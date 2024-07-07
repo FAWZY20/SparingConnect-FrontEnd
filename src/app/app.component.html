@@ -1,5 +1,4 @@
-<div *ngIf="isStatut; then thenBlock else elseBlock"></div>
-<ng-template #elseBlock><app-header></app-header></ng-template>
-<ng-template #thenBlock><app-header-admin></app-header-admin></ng-template>
+<app-header  *ngIf="!statut"></app-header>
+<app-header-admin *ngIf="statut"></app-header-admin>
 <router-outlet></router-outlet>
 <app-footer></app-footer>

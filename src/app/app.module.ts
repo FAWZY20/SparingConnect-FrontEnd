@@ -14,6 +14,10 @@ import { SucesseRegisterComponent } from './models/sucesse-register/sucesse-regi
 import { HeaderAdminComponent } from './components/header-admin/header-admin.component';
 import { AdminProfilComponent } from './models/admin-profil/admin-profil.component';
 import { ProfilUpdateComponent } from './models/profil-update/profil-update.component';
+import { ProfilComponent } from './models/profil/profil.component';
+import { AccountComponent } from './models/account/account.component';
+import { SecurityComponent } from './models/security/security.component';
+import { HeaderSettingComponent } from './components/header-setting/header-setting.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { ProfilUpdateComponent } from './models/profil-update/profil-update.comp
     SucesseRegisterComponent,
     HeaderAdminComponent,
     AdminProfilComponent,
-    ProfilUpdateComponent
+    ProfilUpdateComponent,
+    ProfilComponent,
+    AccountComponent,
+    SecurityComponent,
+    HeaderSettingComponent,
   ],
   imports: [
     BrowserModule,

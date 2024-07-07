@@ -11,7 +11,6 @@ import * as jwt_decode from "jwt-decode";
 })
 export class UserService {
   usersUrl: String = "";
-  statut: Boolean = false;
 
 
   constructor(
@@ -33,9 +32,16 @@ export class UserService {
 
   public addUser(utilisateur: Utilisateur){
     this.http.post<Utilisateur>(this.usersUrl + '/addUser', utilisateur).subscribe(() =>{
-        this.route.navigate(['sucesseRegister']);
+        console.log("profil ajouter");
     })
   }
+
+  public updateUser(id: string ,utilisateur: Utilisateur){
+    this.http.put<Utilisateur>(this.usersUrl + `/updateUser/${id}`, utilisateur).subscribe(() =>{
+      this.route.navigate(['/edit/account']);
+    })
+  }
+
 
   public login(utilisateur: Utilisateur) {
     return this.http.post<Utilisateur>(this.usersUrl + '/login', utilisateur).pipe(
@@ -44,12 +50,6 @@ export class UserService {
         return response;
       }));
   }
-
-
-  public getStatut(): Boolean{
-    return this.statut;
-  }
-
 
 
   public decodeToken(): Observable<any>{

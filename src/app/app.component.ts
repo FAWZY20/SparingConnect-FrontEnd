@@ -9,14 +9,11 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'sparingConnect';
-  isStatut!: Boolean;
-
-  constructor(
-    private userService: UserService
-  ){}
+  statut: Boolean = false
 
   ngOnInit(){
-    console.log(this.userService.getStatut());
+    if (localStorage.getItem("userAuth")) {
+      this.statut = true
+    }
   }
-
 }
