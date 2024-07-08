@@ -42,6 +42,12 @@ export class UserService {
     })
   }
 
+  public  deleteUser(id: string) {
+    this.http.delete<Utilisateur>(this.usersUrl + `/deleteUser/${id}`).subscribe(() => {
+      localStorage.clear();
+      this.route.navigate(['']);
+    })
+  }
 
   public login(utilisateur: Utilisateur) {
     return this.http.post<Utilisateur>(this.usersUrl + '/login', utilisateur).pipe(

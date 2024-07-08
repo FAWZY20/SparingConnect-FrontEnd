@@ -8,19 +8,21 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent {
-  data:any;
   utilisateur: Utilisateur
 
   constructor(
     private userService: UserService,
-  ){this.utilisateur = new Utilisateur()}
+  ) { this.utilisateur = new Utilisateur() }
 
   onSubmit() {
-    console.log(this.utilisateur);
     this.userService.updateUser(this.utilisateur.id, this.utilisateur)
   }
 
-  ngOnInit(){
+  deleteUser(arg0: string) {
+    this.userService.deleteUser(this.utilisateur.id)
+  }
+
+  ngOnInit() {
     this.userService.decodeToken().subscribe(decodedData => {
       if (decodedData) {
         this.utilisateur = decodedData
