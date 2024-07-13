@@ -13,7 +13,8 @@ import { ProfilService } from './profil.service';
 export class UserService {
   usersUrl: String = "";
   statut:Boolean = false;
-
+  private authStatus = new BehaviorSubject<boolean>(this.hasToken());
+  authStatus$ = this.authStatus.asObservable();
 
   constructor(
     private http: HttpClient,
@@ -23,6 +24,14 @@ export class UserService {
     this.usersUrl = 'http://localhost:8085/gestionUtilisateur';
   }
 
+
+  private hasToken(): boolean {
+    return !!localStorage.getItem('userAuth');
+  }
+
+  public checkAuth() {
+    this.authStatus.next(this.hasToken());
+  }
 
   public getUser(utilisateur: Utilisateur) {
     this.http.get<Utilisateur>(this.usersUrl + '/getUser/' + utilisateur.id)
@@ -68,11 +77,18 @@ export class UserService {
       })).subscribe((res) => {
         if (res != null) {
           this.route.navigate(['/admin']);
+          this.authStatus.next(true);
         }else{
           localStorage.clear()
           this.route.navigate(['connexion']);
         }
       });
+  }
+
+  public disconnect() {
+    localStorage.clear()
+    this.route.navigate(['home'])
+    this.authStatus.next(false)
   }
 
 

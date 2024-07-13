@@ -11,7 +11,6 @@ import { AdminPage, AdminPageBloqued } from '../app/services/admin-page.service'
 import { AccountComponent } from './models/account/account.component';
 import { SecurityComponent } from './models/security/security.component';
 import { AppComponent } from './app.component';
-import { AdminLayoutComponent } from './models/admin-layout/admin-layout.component';
 
 const routes: Routes = [
   {
@@ -26,7 +25,6 @@ const routes: Routes = [
   },
   {
     path: "admin",
-    component: AdminLayoutComponent,
     children: [
       { path: "", component: AdminComponent},
       { path: "adminProfil", component: AdminProfilComponent},

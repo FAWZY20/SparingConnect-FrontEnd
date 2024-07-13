@@ -1,3 +1,4 @@
-<app-header></app-header>
+<app-header *ngIf="!statut"></app-header>
+<app-header-admin *ngIf="statut" ></app-header-admin>
 <router-outlet></router-outlet>
 <app-footer></app-footer>

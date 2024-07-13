@@ -18,7 +18,6 @@ import { ProfilComponent } from './models/profil/profil.component';
 import { AccountComponent } from './models/account/account.component';
 import { SecurityComponent } from './models/security/security.component';
 import { HeaderSettingComponent } from './components/header-setting/header-setting.component';
-import { AdminLayoutComponent } from './models/admin-layout/admin-layout.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +35,7 @@ import { AdminLayoutComponent } from './models/admin-layout/admin-layout.compone
     ProfilComponent,
     AccountComponent,
     SecurityComponent,
-    HeaderSettingComponent,
-    AdminLayoutComponent,
+    HeaderSettingComponent
   ],
   imports: [
     BrowserModule,

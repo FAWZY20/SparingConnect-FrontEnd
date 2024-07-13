@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-header-admin',
@@ -9,14 +10,13 @@ import { Router } from '@angular/router';
 export class HeaderAdminComponent {
 
   constructor(
-    private route: Router
+    private userService: UserService
   ){
 
   }
 
-  Disconnect() {
-    localStorage.clear()
-    this.route.navigate(['home'])
+  disconnect() {
+    this.userService.disconnect()
   }
 
 }
