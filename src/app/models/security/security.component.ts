@@ -20,8 +20,9 @@ export class SecurityComponent {
   ) { this.utilisateur = new Utilisateur() }
 
   checkPwd(): Boolean {
-    return this.data.password === this.pwd 
-    && this.utilisateur.password === this.newPwd
+    return this.data.password == this.pwd 
+    && this.data.password != this.newPwd
+    && this.utilisateur.password == this.newPwd
     && this.pwd != ""
     && this.newPwd != ""
     && this.utilisateur.password != "";
