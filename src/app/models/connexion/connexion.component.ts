@@ -23,14 +23,7 @@ export class ConnexionComponent {
   }
 
   onSubmit() {
-    this.userService.login(this.utilisateur).subscribe((res) => {
-      if (res != null) {
-        this.route.navigate(['admin']);
-      }else{
-        localStorage.clear()
-        this.route.navigate(['connexion']);
-      }
-    })
+    this.userService.login(this.utilisateur)
   }
 
 }

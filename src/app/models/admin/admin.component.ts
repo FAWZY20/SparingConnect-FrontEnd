@@ -11,26 +11,35 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-  data: any
-  profil!: Observable<boolean>;
+  utilsiateur: Utilisateur
+  profil$: Observable<Boolean> = of(false);
+  isProfil: Boolean = false;
 
   constructor(
     private userService: UserService,
-    private profilSerice: ProfilService,
+    private profilService: ProfilService,
     private navigation: NavigationService
-  ){}
+  ){this.utilsiateur = new Utilisateur()}
 
   toRegisterProfil(page: string) {
     this.navigation.moveNewPage(page)
   }
 
+
   ngOnInit(){
     this.userService.decodeToken().subscribe(decodedData => {
       if (decodedData) {
-        this.data = decodedData
+        this.utilsiateur = decodedData
+        if (this.utilsiateur.id != null) {
+          this.profilService.checkProfil(this.utilsiateur.id).subscribe(res => {
+            this.isProfil = res;
+          })
+        }else{
+          console.log("l'id n'existe pas");
+        }
       }
     });
-    this.profil = this.profilSerice.checkProfil(this.data.id);
+    
   }
 
 }

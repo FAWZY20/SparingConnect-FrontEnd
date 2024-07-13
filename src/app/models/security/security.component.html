@@ -4,7 +4,49 @@
             <app-header-setting></app-header-setting>
         </div>
         <div class="col-9 edit-bloc-form">
-
+            <div>
+                <p>MODIFIER LE MOT DE PASSE</p>
+            </div>
+            <hr>
+            <div class="alert alert-danger" *ngIf="errorPwd" role="alert">
+                Assurez-vous que votre mot de passe actuel est correct et que la confirmation du mot de passe correspond
+                exactement au nouveau mot de passe saisi.
+            </div>
+            <div class="form-account">
+                <div class="input-bloc">
+                    <div class="label-bloc col-4">
+                        <label for="mdp">Mot de passe actuel</label>
+                    </div>
+                    <div class="input col-6">
+                        <input class="form-control" id="mdp" type="password" name="mdp" [(ngModel)]="pwd">
+                    </div>
+                </div>
+                <div class="input-bloc">
+                    <div class="label-bloc col-4">
+                        <label for="newMdp">Nouveau mot de passe</label>
+                    </div>
+                    <div class="input col-6">
+                        <input class="form-control" id="newMdp" type="password" name="newMdp" [(ngModel)]="newPwd">
+                    </div>
+                </div>
+                <form (ngSubmit)="onSubmit()" #editAccount="ngForm">
+                    <div class="input-bloc">
+                        <div class="label-bloc col-4">
+                            <label for="confirmMdp">Confirmer le mot de passe</label>
+                        </div>
+                        <div class="input col-6">
+                            <input class="form-control" id="confirmMdp" type="password" name="confirmMdp"
+                                [(ngModel)]="utilisateur.password" required #password="ngModel">
+                        </div>
+                    </div>
+                    <div class="btn-save">
+                        <button type="submit" class="btn btn-dark">Sauvegarder</button>
+                    </div>
+                </form>
+            </div>
+            <div class="alert alert-success" *ngIf="validPwd" role="alert">
+                This is a success alert—check it out!
+            </div>
         </div>
     </div>
 </div>

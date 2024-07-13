@@ -1,20 +1,3 @@
-.edit-bloc-form{
-    box-shadow: 1px 1px 12px #55555559;
-    padding: 3%;
-}
-
-.input-bloc{
-    display: flex;
-    flex-direction: row;
-    padding-bottom: 3%;
-}
-
-
-.btn-save{
-    display: flex;
-    justify-content: flex-end;
-}
-
 .delete-bloc{
     display: flex;
     flex-direction: row;

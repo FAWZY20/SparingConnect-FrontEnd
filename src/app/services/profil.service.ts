@@ -8,6 +8,7 @@ import { Observable, catchError, map, of } from 'rxjs';
   providedIn: 'root'
 })
 export class ProfilService {
+
   usersUrl: String = "";
 
 
@@ -30,7 +31,11 @@ export class ProfilService {
     })
   }
 
-  public checkProfil(id: string): Observable<boolean> {
+  public deleteProfil(id: string): Observable<any> {
+    return this.http.delete(this.usersUrl + `/deleteProfil/${id}`)
+  }
+
+  public checkProfil(id: string): Observable<Boolean> {
     return this.http.get<Profil>(this.usersUrl + `/getProfil/${id}`).pipe(
       map(res => res != null),
       catchError(error => {

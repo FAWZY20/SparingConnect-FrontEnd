@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Utilisateur } from 'src/app/dataModels/utilisateur';
+import { ProfilService } from 'src/app/services/profil.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,13 +14,15 @@ export class AccountComponent {
 
   constructor(
     private userService: UserService,
+    private profilService: ProfilService,
+    private route: Router
   ) { this.utilisateur = new Utilisateur() }
 
   onSubmit() {
     this.userService.updateUser(this.utilisateur.id, this.utilisateur)
   }
 
-  deleteUser(arg0: string) {
+  deleteUser(userId: string) {
     this.userService.deleteUser(this.utilisateur.id)
   }
 

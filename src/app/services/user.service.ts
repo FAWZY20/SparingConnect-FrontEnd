@@ -4,6 +4,7 @@ import { Utilisateur } from '../dataModels/utilisateur';
 import { BehaviorSubject, Observable, map, of } from 'rxjs';
 import { Router } from '@angular/router';
 import * as jwt_decode from "jwt-decode";
+import { ProfilService } from './profil.service';
 
 
 @Injectable({
@@ -11,17 +12,19 @@ import * as jwt_decode from "jwt-decode";
 })
 export class UserService {
   usersUrl: String = "";
+  statut:Boolean = false;
 
 
   constructor(
     private http: HttpClient,
+    private profilService: ProfilService,
     private route: Router,
   ) {
     this.usersUrl = 'http://localhost:8085/gestionUtilisateur';
   }
 
 
-  public getUser(utilisateur: Utilisateur){
+  public getUser(utilisateur: Utilisateur) {
     this.http.get<Utilisateur>(this.usersUrl + '/getUser/' + utilisateur.id)
   }
 
@@ -30,22 +33,30 @@ export class UserService {
   }
 
 
-  public addUser(utilisateur: Utilisateur){
-    this.http.post<Utilisateur>(this.usersUrl + '/addUser', utilisateur).subscribe(() =>{
-        console.log("profil ajouter");
+  public addUser(utilisateur: Utilisateur) {
+    this.http.post<Utilisateur>(this.usersUrl + '/addUser', utilisateur).subscribe(() => {
+      this.route.navigate(["connexion"])
     })
   }
 
-  public updateUser(id: string ,utilisateur: Utilisateur){
-    this.http.put<Utilisateur>(this.usersUrl + `/updateUser/${id}`, utilisateur).subscribe(() =>{
-      this.route.navigate(['/edit/account']);
+  public updateUser(id: string, utilisateur: Utilisateur) {
+    this.http.put<Utilisateur>(this.usersUrl + `/updateUser/${id}`, utilisateur).subscribe(() => {
+      this.route.navigate(['/admin/edit/account']);
     })
   }
 
-  public  deleteUser(id: string) {
-    this.http.delete<Utilisateur>(this.usersUrl + `/deleteUser/${id}`).subscribe(() => {
-      localStorage.clear();
-      this.route.navigate(['']);
+  updatePwd(id: string, utilisateur: Utilisateur) {
+    this.http.put<Utilisateur>(this.usersUrl + `/updatePwd/${id}`, utilisateur).subscribe(() => {
+      this.route.navigate(['/admin/edit/security']);
+    })
+  }
+
+  public deleteUser(id: string) {
+    return this.http.delete<Utilisateur>(this.usersUrl + `/deleteUser/${id}`).subscribe(() => {
+      this.profilService.deleteProfil(id).subscribe(() => {
+        this.route.navigate(["/"])
+        localStorage.clear()
+      })
     })
   }
 
@@ -54,11 +65,18 @@ export class UserService {
       map((response: any) => {
         localStorage.setItem('userAuth', JSON.stringify(response));
         return response;
-      }));
+      })).subscribe((res) => {
+        if (res != null) {
+          this.route.navigate(['/admin']);
+        }else{
+          localStorage.clear()
+          this.route.navigate(['connexion']);
+        }
+      });
   }
 
 
-  public decodeToken(): Observable<any>{
+  public decodeToken(): Observable<any> {
     let token: any = localStorage.getItem('userAuth');
     if (token) {
       let decodedToken: any = jwt_decode.jwtDecode(token);

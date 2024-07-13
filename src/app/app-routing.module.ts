@@ -10,29 +10,43 @@ import { ProfilUpdateComponent } from './models/profil-update/profil-update.comp
 import { AdminPage, AdminPageBloqued } from '../app/services/admin-page.service';
 import { AccountComponent } from './models/account/account.component';
 import { SecurityComponent } from './models/security/security.component';
+import { AppComponent } from './app.component';
+import { AdminLayoutComponent } from './models/admin-layout/admin-layout.component';
 
 const routes: Routes = [
-      { path: "", component: HomeComponent, canActivate: [AdminPageBloqued] },
-      { path: "connexion", component: ConnexionComponent, canActivate: [AdminPageBloqued]},
-      { path: "inscription", component: InscriptionComponent, canActivate: [AdminPageBloqued]},
-      { path: "SucesseRegister", component: SucesseRegisterComponent, canActivate: [AdminPageBloqued]},
-      { path: "admin", component: AdminComponent, canActivate: [AdminPage]},
-      { path: "adminProfil", component: AdminProfilComponent, canActivate: [AdminPage]},
-      { path: "profilUpdate", component: ProfilUpdateComponent, canActivate: [AdminPage]},
-      { path: "profilUpdate", component: ProfilUpdateComponent, canActivate: [AdminPage]},
+  {
+    path: "",
+    children: [
+      { path: "", component: HomeComponent},
+      { path: "connexion", component: ConnexionComponent},
+      { path: "inscription", component: InscriptionComponent},
+      { path: "sucesseRegister", component: SucesseRegisterComponent},
+    ], 
+    canActivate: [AdminPageBloqued]
+  },
+  {
+    path: "admin",
+    component: AdminLayoutComponent,
+    children: [
+      { path: "", component: AdminComponent},
+      { path: "adminProfil", component: AdminProfilComponent},
+      { path: "profilUpdate", component: ProfilUpdateComponent},
+      { path: "profilUpdate", component: ProfilUpdateComponent},
       {
-        path:"edit",
-        children:[
-          {path:"account", component:AccountComponent},
-          {path:"security", component:SecurityComponent},
-        ], 
-        canActivate: [AdminPage]
+        path: "edit",
+        children: [
+          { path: "account", component: AccountComponent },
+          { path: "security", component: SecurityComponent },
+        ]
       }
-      
+    ], 
+    canActivate: [AdminPage]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
