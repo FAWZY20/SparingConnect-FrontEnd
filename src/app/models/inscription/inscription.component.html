@@ -2,31 +2,58 @@
     <div class="row">
         <div class="col-6 registration">
             <div class="logo-registration">
-                <img src="../../../assets/images/logo.png" width="300" height="300" class="d-inline-block align-top" alt="logo">
+                <img src="../../../assets/images/logo.png" width="300" height="300" class="d-inline-block align-top"
+                    alt="logo">
             </div>
             <div class="form-register">
-                <form (ngSubmit)="onSubmit()"  #registerForm="ngForm">
-                    <div class="form-input-bloc">
-                        <input class="form-control form-control-lg input-registration" type="text" placeholder="Prénom" name="prenom" [(ngModel)]="utilisateur.prenom" required #prenom="ngModel">
+                <div class="alert alert-danger" *ngIf="erreurInscription" role="alert">
+                    Assurez-vous que tout les infomation sont remplis et que la confirmation du mot de passe correspond
+                    exactement.
+                </div>
+                <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+                    <div class="form-input-bloc row">
+                        <div class="col">
+                            <input class="form-control form-control-lg input-registration" type="text" placeholder="Prénom"
+                            name="prenom" [(ngModel)]="utilisateur.prenom" required #prenom="ngModel">
+                        </div>
+                        <div class="col">
+                            <input class="form-control form-control-lg input-registration" type="text"
+                            placeholder="Nom de famille" name="nom" [(ngModel)]="utilisateur.nom" required
+                            #nom="ngModel">
+                        </div>
                     </div>
                     <div class="form-input-bloc">
-                        <input class="form-control form-control-lg input-registration" type="text"
-                            placeholder="Nom de famille" name="nom" [(ngModel)]="utilisateur.nom" required #nom="ngModel">
-                    </div>
-                    <div class="form-input-bloc">
-                        <input class="form-control form-control-lg input-registration" type="email"
-                            placeholder="E-mail" name="mail" [(ngModel)]="utilisateur.mail" required #mail="ngModel">
+                        <input class="form-control form-control-lg input-registration" type="email" placeholder="E-mail"
+                            name="mail" [(ngModel)]="utilisateur.mail" required #mail="ngModel">
                     </div>
                     <div class="form-input-bloc">
                         <input class="form-control form-control-lg input-registration" type="password"
-                            placeholder="Mot de passe" name="password" [(ngModel)]="utilisateur.password" required #password="ngModel">
+                            placeholder="Mot de passe" name="password" [(ngModel)]="utilisateur.password" required
+                            #password="ngModel">
+                    </div>
+                    <div class="form-input-bloc">
+                        <input class="form-control form-control-lg input-registration" type="password"
+                            placeholder="Confirmation du mot de passe" name="password" [(ngModel)]="confirmPwd">
+                    </div>
+                    <div class="form-input-bloc">
+                        <input class="form-control form-control-lg input-registration" type="text"
+                            placeholder="Ville" name="ville" [(ngModel)]="utilisateur.ville">
+                    </div>
+                    <div class="form-input-bloc">
+                        <div>
+                            <label for="">Date de naissance</label>
+                        </div>
+                        <input class="form-control form-control-lg input-registration" type="date"
+                            placeholder="Date d'anniversaire" name="age" [(ngModel)]="dateNaissance">
                     </div>
                     <div class="form-btn-bloc">
                         <div>
-                            <button type="submit" class="btn  btn-registration" value="Register">Créer un compte</button>
+                            <button type="submit" class="btn  btn-registration" value="Register">Créer un
+                                compte</button>
                         </div>
                         <div>
-                            <p>Vous avez déjà un compte? <span><button type="button" class="btn btn-light" (click)="toConnect('connexion')">Se connecter</button></span></p>
+                            <p>Vous avez déjà un compte? <span><button type="button" class="btn btn-light"
+                                        (click)="toConnect('connexion')">Se connecter</button></span></p>
                         </div>
                     </div>
                 </form>

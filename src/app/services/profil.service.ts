@@ -27,12 +27,16 @@ export class ProfilService {
 
   public updateProfil(userid: string, profil: Profil) {
     this.http.put<Profil>(this.usersUrl + `/editProfil/${userid}`, profil).subscribe(() => {
-      console.log("profil mise a jour");
+      this.route.navigate(["/admin/profil"])
     })
   }
 
   public deleteProfil(id: string): Observable<any> {
     return this.http.delete(this.usersUrl + `/deleteProfil/${id}`)
+  }
+
+  public getProfil(id: string): Observable<any>{
+    return this.http.get<Profil>(this.usersUrl + `/getProfil/${id}`)
   }
 
   public checkProfil(id: string): Observable<Boolean> {

@@ -48,10 +48,8 @@ export class UserService {
     })
   }
 
-  public updateUser(id: string, utilisateur: Utilisateur) {
-    this.http.put<Utilisateur>(this.usersUrl + `/updateUser/${id}`, utilisateur).subscribe(() => {
-      this.route.navigate(['/admin/edit/account']);
-    })
+  public updateUser(id: string, utilisateur: Utilisateur): Observable<any> {
+    return this.http.put<Utilisateur>(this.usersUrl + `/updateUser/${id}`, utilisateur)
   }
 
   updatePwd(id: string, utilisateur: Utilisateur) {

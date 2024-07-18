@@ -3,5 +3,5 @@ export class Profil{
     userid!: string;
     sport!: string;
     poid!: number;
-    niveaux!: string;
+    niveau!: string;
 }

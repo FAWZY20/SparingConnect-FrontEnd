@@ -19,12 +19,12 @@
                 <div class="form-group col-5">
                     <select class="form-control" id="exampleFormControlSelect1"name="sport"
                         [(ngModel)]="profil.sport" required #sport="ngModel">
-                        <option value="1">Kick Boxing</option>
-                        <option value="2">Boxe Thailandaise</option>
-                        <option value="3">Boxe Anglaise</option>
-                        <option value="3">MMA</option>
-                        <option value="3">Lute</option>
-                        <option value="3">JJB</option>
+                        <option value="Kick">Kick Boxing</option>
+                        <option value="Thailandaise">Boxe Thailandaise</option>
+                        <option value="Anglaise">Boxe Anglaise</option>
+                        <option value="MMA">MMA</option>
+                        <option value="Lute">Lute</option>
+                        <option value="JJB">JJB</option>
                     </select>
                 </div>
             </div>
@@ -47,8 +47,7 @@
                     <p>Quel est votre niveau dans ce sport ?</p>
                 </div>
                 <div class="form-group col-5">
-                    <select class="form-control" id="exampleFormControlSelect1" name="niveau"
-                        [(ngModel)]="profil.niveaux" required #niveaux="ngModel">
+                    <select class="form-control" id="exampleFormControlSelect1" name="niveau" [(ngModel)]="profil.niveau" required #niveaux="ngModel">
                         <option value="Débutan">Débutan</option>
                         <option value="Intermédiaire">Intermédiaire</option>
                         <option value="Avancé">Avancé</option>

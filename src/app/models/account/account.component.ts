@@ -19,7 +19,9 @@ export class AccountComponent {
   ) { this.utilisateur = new Utilisateur() }
 
   onSubmit() {
-    this.userService.updateUser(this.utilisateur.id, this.utilisateur)
+    this.userService.updateUser(this.utilisateur.id, this.utilisateur).subscribe(() => {
+      this.route.navigate(['/admin/edit/account']);
+    })
   }
 
   deleteUser(userId: string) {

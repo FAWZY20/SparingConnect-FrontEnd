@@ -93,7 +93,12 @@ body {
 
 .edit{
     margin-top: 4%;
-    margin-bottom: 4%;
+    margin-bottom: 5%;
+}
+
+.edit-security{
+    margin-top: 4%;
+    margin-bottom: 15.3%;
 }
 
 .edit-bloc-form{
