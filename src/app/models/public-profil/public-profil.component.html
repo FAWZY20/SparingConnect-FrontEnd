@@ -1,0 +1,88 @@
+<div class="container publicProfil">
+    <div class="row">
+        <div class="col-8">
+            <div class="info-principal-bloc">
+                <div class="info-principal-bloc-img">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                        class="rounded-circle img-fluid img-profil" height="130" width="130">
+                </div>
+                <div class="info-principal-bloc-text">
+                    <div>
+                        <p class="info-principal-identifiant text-capitalize">{{utilisateur.prenom}} {{utilisateur.nom}}
+                        </p>
+                    </div>
+                    <div class="info-principal-localisation">
+                        <div class="localisation-icon">
+                            <img src="../../../assets/svg/localisation.svg" height="20" width="20" alt="localisation">
+                        </div>
+                        <div class="info-bloc-ville text-capitalize">
+                            {{utilisateur.ville}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="description-bloc">
+                <p>{{utilisateur.description}}</p>
+            </div>
+            <div class="profils">
+                <div class="profil-bloc color-sport col-4">
+                    <div>
+                        <img src="../../../assets/images/sport.png" height="60" width="60" alt="">
+                    </div>
+                    <div class="profil-bloc-txt">
+                        <div class="profil-title">
+                            <p>Sport</p>
+                        </div>
+                        <div class="profil-bloc-data">
+                            {{profil.sport}}
+                        </div>
+                    </div>
+                </div>
+                <div class="profil-bloc color-nvx col-4">
+                    <div>
+                        <img src="../../../assets/icon/niveaux.png" height="60" width="60" alt="">
+                    </div>
+                    <div class="profil-bloc-txt">
+                        <div class="profil-title">
+                            <p>Niveau</p>
+                        </div>
+                        <div class="profil-bloc-data">
+                            {{profil.niveau}}
+                        </div>
+                    </div>
+                </div>
+                <div class="profil-bloc color-poid col-4">
+                    <div>
+                        <img src="../../../assets/icon/poid.png" height="60" width="60" alt="">
+                    </div>
+                    <div class="profil-bloc-txt">
+                        <div class="profil-title">
+                            <p>Poid</p>
+                        </div>
+                        <div class="profil-bloc-data">
+                            {{profil.poid}} Kg
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6"></div>
+            </div>
+        </div>
+        <div class=" col-4">
+            <div class="contacter-bloc">
+                <div class="contact-info">
+                    <div class="info-principal-bloc-img">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                            alt="avatar" class="rounded-circle img-fluid img-profil" height="50" width="50">
+                    </div>
+                    <div>
+                        <p class="contact-identifiant text-capitalize">{{utilisateur.prenom}} {{utilisateur.nom}}</p>
+                    </div>
+
+                </div>
+                <div class="contact-btn">
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">Contactez moi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

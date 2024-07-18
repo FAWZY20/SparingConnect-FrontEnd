@@ -10,7 +10,7 @@
                             <h5 class="my-3 text-id text-capitalize">{{utilisateur.prenom}} {{utilisateur.nom}} </h5>
                         </div>
                         <div class="d-flex justify-content-center mb-2 my-5">
-                            <button type="button" class="btn btn-secondary btn-lg btn-outline-secondary">Aperçu du profil SparingConnect</button>
+                            <button type="button" [routerLink]="['/admin/publicProfil', utilisateur.id]" class="btn btn-secondary btn-lg btn-outline-secondary">Aperçu du profil SparingConnect</button>
                         </div>
                     </div>
                     <hr />

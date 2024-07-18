@@ -18,11 +18,10 @@ export class ProfilComponent {
   constructor(
     private userService: UserService,
     private profilServie: ProfilService
-  ) { 
-    this.utilisateur = new Utilisateur() 
+  ) {
+    this.utilisateur = new Utilisateur()
     this.profil = new Profil()
   }
-
 
   descriptionForm() {
     if (this.checkDescription) {
@@ -34,7 +33,7 @@ export class ProfilComponent {
 
   onSubmit() {
     this.utilisateur.description = this.description;
-    this.userService.updateUser(this.utilisateur.id ,this.utilisateur).subscribe(() => {
+    this.userService.updateUser(this.utilisateur.id, this.utilisateur).subscribe(() => {
       this.checkDescription = false;
     })
   }
