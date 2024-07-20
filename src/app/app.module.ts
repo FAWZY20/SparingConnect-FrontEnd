@@ -18,6 +18,7 @@ import { ProfilComponent } from './models/profil/profil.component';
 import { AccountComponent } from './models/account/account.component';
 import { SecurityComponent } from './models/security/security.component';
 import { HeaderSettingComponent } from './components/header-setting/header-setting.component';
+import { PublicProfilComponent } from './models/public-profil/public-profil.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { HeaderSettingComponent } from './components/header-setting/header-setti
     ProfilComponent,
     AccountComponent,
     SecurityComponent,
-    HeaderSettingComponent
+    HeaderSettingComponent,
+    PublicProfilComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
-<section>
-    <div class="container-fluid">
-        <div class="message-bloc row">
+<section class="container-fluid admin-home">
+    <div class="row">
+        <div class="message-bloc col-12">
             <div class="message">
                 <h2 class="message">Nous sommes contents de vous revoir, {{utilsiateur.prenom}} 👋</h2>
             </div>
@@ -21,7 +21,8 @@
                         </div>
                     </div>
                     <div>
-                        <button type="button" (click)="toRegisterProfil('/admin/adminProfil')" class="btn btn-light">Ajoutez vos
+                        <button type="button" (click)="toRegisterProfil('/admin/adminProfil')"
+                            class="btn btn-light">Ajoutez vos
                             informations</button>
                     </div>
                 </div>
@@ -42,11 +43,123 @@
                         </div>
                     </div>
                     <div>
-                        <button type="button" (click)="toRegisterProfil('/admin/profilUpdate')" class="btn btn-light">Modifier vos
+                        <button type="button" (click)="toRegisterProfil('/admin/profilUpdate')"
+                            class="btn btn-light">Modifier vos
                             informations</button>
                     </div>
                 </div>
             </ng-template>
         </div>
+        <div class="carrousel-bloc row">
+            <div>
+                <div>
+                    <p class="title-carrousel">Trouvez votre partenaire idéal pour la Boxe Anglaise</p>
+                </div>
+                <div #sportDiv data-sport="Anglaise">
+                    <div *ngFor="let utilisateurs of allUtilisateur" class="bloc-carrousel">
+                        <div class="bloc-profil-carrousel col-4">
+                            <div class="img-caroussel"></div>
+                            <div class="identifiant-carrousel text-uppercase font-weight-bold">
+                                <p>{{utilisateurs.prenom}} {{utilisateurs.nom}} </p>
+                            </div>
+                            <div class="btn-profil">
+                                <button type="button" class="btn btn-dark">Cosulter le profil</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p class="title-carrousel">Trouvez votre partenaire idéal pour la Boxe Thaï</p>
+                </div>
+                <div #sportDiv data-sport="Thailandaise">
+                    <div *ngFor="let utilisateurs of allUtilisateur" class="bloc-carrousel">
+                        <div class="bloc-profil-carrousel col-4">
+                            <div class="img-caroussel"></div>
+                            <div class="identifiant-carrousel text-uppercase font-weight-bold">
+                                <p>{{utilisateurs.prenom}} {{utilisateurs.nom}} </p>
+                            </div>
+                            <div class="btn-profil">
+                                <button type="button" class="btn btn-dark">Cosulter le profil</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p class="title-carrousel">Trouvez votre partenaire idéal pour la Kick Boxing</p>
+                </div>
+                <div #sportDiv data-sport="Kick">
+                    <div *ngFor="let utilisateurs of allUtilisateur" class="bloc-carrousel">
+                        <div class="bloc-profil-carrousel col-4">
+                            <div class="img-caroussel"></div>
+                            <div class="identifiant-carrousel text-uppercase font-weight-bold">
+                                <p>{{utilisateurs.prenom}} {{utilisateurs.nom}} </p>
+                            </div>
+                            <div class="btn-profil">
+                                <button type="button" class="btn btn-dark">Cosulter le profil</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p class="title-carrousel">Trouvez votre partenaire idéal pour la MMA</p>
+                </div>
+                <div #sportDiv data-sport="MMA">
+                    <div *ngFor="let utilisateurs of allUtilisateur" class="bloc-carrousel">
+                        <div class="bloc-profil-carrousel col-4">
+                            <div class="img-caroussel"></div>
+                            <div class="identifiant-carrousel text-uppercase font-weight-bold">
+                                <p>{{utilisateurs.prenom}} {{utilisateurs.nom}} </p>
+                            </div>
+                            <div class="btn-profil">
+                                <button type="button" class="btn btn-dark">Cosulter le profil</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p class="title-carrousel">Trouvez votre partenaire idéal pour la Lute</p>
+                </div>
+                <div #sportDiv data-sport="Lute">
+                    <div *ngFor="let utilisateurs of allUtilisateur" class="bloc-carrousel">
+                        <div class="bloc-profil-carrousel col-4">
+                            <div class="img-caroussel"></div>
+                            <div class="identifiant-carrousel text-uppercase font-weight-bold">
+                                <p>{{utilisateurs.prenom}} {{utilisateurs.nom}} </p>
+                            </div>
+                            <div class="btn-profil">
+                                <button type="button" class="btn btn-dark">Cosulter le profil</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <p class="title-carrousel">Trouvez votre partenaire idéal pour la JJB</p>
+                </div>
+                <div #sportDiv data-sport="JJB">
+                    <div *ngFor="let utilisateurs of allUtilisateur" class="bloc-carrousel">
+                        <div class="bloc-profil-carrousel col-4">
+                            <div class="img-caroussel"></div>
+                            <div class="identifiant-carrousel text-uppercase font-weight-bold">
+                                <p>{{utilisateurs.prenom}} {{utilisateurs.nom}} </p>
+                            </div>
+                            <div class="btn-profil">
+                                <button type="button" class="btn btn-dark">Cosulter le profil</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>

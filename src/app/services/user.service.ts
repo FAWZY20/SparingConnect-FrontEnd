@@ -33,8 +33,16 @@ export class UserService {
     this.authStatus.next(this.hasToken());
   }
 
+  public getAllUser(): Observable<Utilisateur[]>{
+    return this.http.get<Utilisateur[]>(this.usersUrl + '/getAllUser')
+  } 
+
   public getUser(utilisateur: Utilisateur) {
     this.http.get<Utilisateur>(this.usersUrl + '/getUser/' + utilisateur.id)
+  }
+
+  public getUserById(userId: String): Observable<any> {
+    return this.http.get<Utilisateur>(this.usersUrl + '/getUser/' + userId)
   }
 
   public getUserByMail(mail: String): Observable<Utilisateur> {

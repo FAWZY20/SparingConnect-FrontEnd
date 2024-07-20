@@ -11,6 +11,7 @@ import { AdminPage, AdminPageBloqued } from '../app/services/admin-page.service'
 import { AccountComponent } from './models/account/account.component';
 import { SecurityComponent } from './models/security/security.component';
 import { ProfilComponent } from './models/profil/profil.component';
+import { PublicProfilComponent } from './models/public-profil/public-profil.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,7 @@ const routes: Routes = [
       { path: "profil", component: ProfilComponent},
       { path: "adminProfil", component: AdminProfilComponent},
       { path: "profilUpdate", component: ProfilUpdateComponent},
+      { path: `publicProfil/:userId`, component: PublicProfilComponent},
       {
         path: "edit",
         children: [

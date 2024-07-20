@@ -1,28 +1,33 @@
-.message-bloc{
+.message-bloc {
     display: flex;
     flex-direction: column;
     background-image: url("../../../assets/images/backgroundMessage.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
-    padding:3%;
-    padding-bottom: 2%;
-    padding-top: 2%;
+    padding: 3%;
     margin-top: 5%;
     margin-bottom: 5%;
-    margin-left: 15%;
-    margin-right: 15%;
     border-radius: 20px;
 }
 
+.admin-home {
+    padding-left: 7%;
+    padding-right: 7%;
+}
 
-.message{
+.title-carrousel {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.message {
     font-weight: 600;
     font-size: 40px;
     margin-bottom: 2%;
 }
 
-.ajout-info{
+.ajout-info {
     background-color: rgba(39, 23, 23, 0.411);
     display: flex;
     flex-direction: row;
@@ -32,16 +37,54 @@
     border-radius: 15px;
 }
 
-.ajout-info-text{
+.ajout-info-text {
     display: flex;
     flex-direction: row;
 }
 
-.ajout-info-title{
+.ajout-info-title {
     margin: 0;
     font-weight: bold;
 }
 
-.bloc-text{
+.bloc-text {
     padding-left: 20px;
+}
+
+.carrousel-bloc {
+    display: flex;
+    flex-direction: column;
+}
+
+.bloc-carrousel{
+    margin-top: 5%;
+    margin-bottom: 10%;
+    display: flex;
+    flex-direction: row;
+}
+
+.bloc-profil-carrousel {
+    box-shadow: 1px 1px 12px #555;
+    border-radius: 10px;
+    padding: 0;
+}
+
+.identifiant-carrousel {
+    font-size: 23px;
+}
+
+.img-caroussel {
+    background-image: url(../../../assets/images/user.jpg);
+    background-size: cover;
+    padding-bottom: 200px;
+}
+
+.identifiant-carrousel {
+    padding-top: 5%;
+    padding-left: 5%;
+}
+
+.btn-profil{
+    padding-left: 5%;
+    padding-bottom: 3%;
 }
