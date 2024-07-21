@@ -61,30 +61,43 @@
     margin-bottom: 10%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .bloc-profil-carrousel {
-    box-shadow: 1px 1px 12px #555;
+    margin-bottom: 20%;
     border-radius: 10px;
     padding: 0;
 }
 
 .identifiant-carrousel {
+    padding-bottom: 3%;
+    margin-top: 50%;
     font-size: 23px;
+    padding-top: 5%;
+    color: black;
+    padding-left: 5%;
 }
 
 .img-caroussel {
     background-image: url(../../../assets/images/user.jpg);
     background-size: cover;
-    padding-bottom: 200px;
-}
-
-.identifiant-carrousel {
-    padding-top: 5%;
-    padding-left: 5%;
+    border-radius: 20px;
 }
 
 .btn-profil{
     padding-left: 5%;
     padding-bottom: 3%;
+}
+
+.identifiant{
+    font-size: 30px;
+    font-weight: 700;
+    padding-bottom: 0;
+    margin: 0;
+}
+
+.btn-like-bloc{
+    display: flex;
+    align-items: flex-end;
 }

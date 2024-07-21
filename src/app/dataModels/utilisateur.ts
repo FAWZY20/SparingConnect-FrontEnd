@@ -1,3 +1,5 @@
+import { Profil } from "./profil";
+
 export class Utilisateur {
     id: string = "";
     nom: string = "";
@@ -7,5 +9,5 @@ export class Utilisateur {
     age: number = 0;
     ville: string = "";
     description: string = "";
-
+    profile?: Profil;
 }

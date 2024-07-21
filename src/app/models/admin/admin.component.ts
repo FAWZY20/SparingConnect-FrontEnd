@@ -1,5 +1,6 @@
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { forkJoin, map, Observable, of, switchMap } from 'rxjs';
+import { Profil } from 'src/app/dataModels/profil';
 import { Utilisateur } from 'src/app/dataModels/utilisateur';
 import { NavigationService } from 'src/app/services/navigation-service.service';
 import { ProfilService } from 'src/app/services/profil.service';
@@ -13,9 +14,9 @@ import { UserService } from 'src/app/services/user.service';
 export class AdminComponent {
   utilsiateur: Utilisateur
   allUtilisateur: Utilisateur[] = [];
+  allProfil: Profil[] = [];
   profil$: Observable<Boolean> = of(false);
   isProfil: Boolean = false;
-  @ViewChildren('sportDiv') sportDivs!: QueryList<ElementRef>;
 
   constructor(
     private userService: UserService,
@@ -27,50 +28,44 @@ export class AdminComponent {
     this.navigation.moveNewPage(page)
   }
 
-
-  ngAfterViewInit(): void {
-    this.sportDivs.forEach(sportDiv => {
-      const sport = sportDiv.nativeElement.getAttribute('data-sport');
-      console.log(sport);
-      this.getuserbySport(sport);
-    });
+  getProfil(userId: string) {
+    this.profilService.getProfil(userId).subscribe((res) => {
+      console.log(res.sport);
+    })
   }
+  ngOnInit() {
 
-
-  getuserbySport(sport: string) {
     this.userService.getAllUser().pipe(
-      switchMap(users => 
-        forkJoin(users.map(user => 
+      map(users => users.slice(0, 10)),
+      switchMap(users => {
+        const profileObservables = users.map(user =>
           this.profilService.getProfil(user.id).pipe(
-            map(profil => ({ user, profil }))
+            map(profile => ({
+              ...user,
+              profile // Ajouter le profil à l'utilisateur
+            }))
           )
-        ))
-      ),
-      map(userProfiles => 
-        userProfiles
-          .filter(up => up.profil && up.profil.sport === sport)  // Vérification ajoutée ici
-          .map(up => up.user)
-      )
-    ).subscribe(filteredUsers => {
-      this.allUtilisateur = filteredUsers;
+        );
+        return forkJoin(profileObservables);
+      })
+    ).subscribe(usersWithProfiles => {
+      this.allUtilisateur = usersWithProfiles;
+      console.log(this.allUtilisateur.map(user => console.log(user.profile?.sport))); // Vérifiez la structure des données ici
     });
-  }
 
-ngOnInit(){
-  this.getuserbySport("Thailandaise");
-  this.userService.decodeToken().subscribe(decodedData => {
-    if (decodedData) {
-      this.utilsiateur = decodedData
-      if (this.utilsiateur.id != null) {
-        this.profilService.checkProfil(this.utilsiateur.id).subscribe(res => {
-          this.isProfil = res;
-        })
-      } else {
-        console.log("l'id n'existe pas");
+    this.userService.decodeToken().subscribe(decodedData => {
+      if (decodedData) {
+        this.utilsiateur = decodedData
+        if (this.utilsiateur.id != null) {
+          this.profilService.checkProfil(this.utilsiateur.id).subscribe(res => {
+            this.isProfil = res;
+          })
+        } else {
+          console.log("l'id n'existe pas");
+        }
       }
-    }
-  });
+    });
 
-}
+  }
 
 }
