@@ -56,7 +56,7 @@
     flex-direction: column;
 }
 
-.bloc-carrousel{
+.bloc-carrousel {
     margin-top: 5%;
     margin-bottom: 10%;
     display: flex;
@@ -81,23 +81,29 @@
 
 .img-caroussel {
     background-image: url(../../../assets/images/user.jpg);
+    transition: background-size 0.5s ease;
+    /* Animation fluide pour le zoom */
     background-size: cover;
     border-radius: 20px;
 }
 
-.btn-profil{
+.img-caroussel:hover {
+    background-size: 120%;
+}
+
+.btn-profil {
     padding-left: 5%;
     padding-bottom: 3%;
 }
 
-.identifiant{
+.identifiant {
     font-size: 30px;
     font-weight: 700;
     padding-bottom: 0;
     margin: 0;
 }
 
-.btn-like-bloc{
+.btn-like-bloc {
     display: flex;
     align-items: flex-end;
 }
