@@ -15,7 +15,6 @@ export class ImageService {
     this.usersUrl = "http://localhost:8085/gestionUtilisateur/images/"
   }
 
-  
   addImage(image: Images): Observable<any>{
     return this.http.post<Images>(this.usersUrl + "addImage", image)
   }
@@ -23,6 +22,10 @@ export class ImageService {
 
   getimagesByUserId(userId: string): Observable<any>{
     return this.http.get<Images>(this.usersUrl + `getImage/${userId}`)
+  }
+
+  getImageProfil(userid: string): Observable<Blob> {
+    return this.http.get(this.usersUrl + `getImageProfil/${userid}`, { responseType: 'blob' })
   }
 
 }

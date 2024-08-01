@@ -17,11 +17,12 @@ import { UserService } from 'src/app/services/user.service';
 export class AdminComponent {
   utilsiateur: Utilisateur
   allUtilisateur: Utilisateur[] = [];
+  allImages: any[] = [];
   allProfil: Profil[] = [];
   profil$: Observable<Boolean> = of(false);
   isProfil: Boolean = false;
-  imageUrl: string | null = null;
-
+  userId!: any;
+  urlImage: any = {};
 
   constructor(
     private userService: UserService,
@@ -47,18 +48,18 @@ export class AdminComponent {
     this.route.navigate(['/admin/publicProfil', userId])
   }
 
-  getProfilImages(userId: string) {
-    this.imageService.getimagesByUserId(userId).pipe(
-      filter(images => images.profilImg == true)
-    ).subscribe(data => {
-      if (data) {
-        this.imageUrl = `data:${data.type};base64,${data.images}`;
-        console.log("l'url de l'image" + this.imageUrl);
-      } else {
-        this.imageUrl = null;
-      }
-    });
-  }
+  getImageProfil(userId: string) {
+    this.imageService.getImageProfil(userId).subscribe(blob => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.urlImage[userId] = reader.result
+      };
+      reader.readAsDataURL(blob);
+    },
+      error => {
+        this.urlImage[userId] = `../../../assets/images/user.jpg`;
+      });
+  };
 
   ngOnInit() {
     this.userService.getAllUser().pipe(
@@ -68,7 +69,7 @@ export class AdminComponent {
           this.profilService.getProfil(user.id).pipe(
             map(profile => ({
               ...user,
-              profile // Ajouter le profil à l'utilisateur
+              profile,
             }))
           )
         );
@@ -76,7 +77,13 @@ export class AdminComponent {
       })
     ).subscribe(usersWithProfiles => {
       this.allUtilisateur = usersWithProfiles;
+      this.allUtilisateur.forEach(user => {
+        this.getImageProfil(user.id);
+        console.log(this.urlImage);
+        
+      });
     });
+
 
     this.userService.decodeToken().subscribe(decodedData => {
       if (decodedData) {

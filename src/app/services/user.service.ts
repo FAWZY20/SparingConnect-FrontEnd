@@ -97,7 +97,6 @@ export class UserService {
     this.authStatus.next(false)
   }
 
-
   public decodeToken(): Observable<any> {
     let token: any = localStorage.getItem('userAuth');
     if (token) {

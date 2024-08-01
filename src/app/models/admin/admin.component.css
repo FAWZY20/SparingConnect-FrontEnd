@@ -72,19 +72,23 @@
 
 .identifiant-carrousel {
     padding-bottom: 3%;
-    margin-top: 50%;
     font-size: 23px;
     padding-top: 5%;
     color: black;
     padding-left: 5%;
 }
 
+
 .img-caroussel {
-    background-image: url(../../../assets/images/user.jpg);
     transition: background-size 0.5s ease;
     /* Animation fluide pour le zoom */
     background-size: cover;
     border-radius: 20px;
+}
+
+.img-caroussel {
+    position: relative;
+    z-index: 1;
 }
 
 .img-caroussel:hover {

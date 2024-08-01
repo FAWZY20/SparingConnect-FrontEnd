@@ -60,14 +60,12 @@
                     <p class="title-carrousel">Trouvez votre partenaire idéal</p>
                 </div>
                 <div class="bloc-carrousel">
-                    <div *ngFor="let utilisateurs of allUtilisateur" class="col">
-                        <div (click)="goToProfil(utilisateurs.id)" class="bloc-profil-carrousel">
+                    <div *ngFor="let utilisateurs of allUtilisateur"  class="col">
+                        <div (click)="goToProfil(utilisateurs.id)" class="bloc-profil-carrousel ">
                             <div class="img-caroussel">
-                                <div class="btn-like-bloc d-flex justify-content-end mx-auto">
-                                    <button type="button" class="btn btn-link">
-                                        <img src="../../../assets/svg/heart.svg" height="30" width="30" alt="">
-                                    </button>
-                                </div>
+                                <img [src]="urlImage[utilisateurs.id]" height="350" width="300" alt="" class="img-caroussel">
+                            </div>
+                            <div>
                                 <div class="identifiant-carrousel text-capitalize font-weight-bold ">
                                     <p class="identifiant">{{utilisateurs.prenom}}</p>
                                     <p class="ville h6">

@@ -9,5 +9,6 @@ export class Utilisateur {
     age: number = 0;
     ville: string = "";
     description: string = "";
+    profileImageUrl?: string;
     profile?: Profil;
 }
