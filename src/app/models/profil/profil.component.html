@@ -5,19 +5,21 @@
                 <div class="card-body">
                     <div class="text-center">
                         <div>
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                                alt="avatar" class="rounded-circle img-fluid" height="200" width="200">
+                            <img [src]="urlImage" alt="avatar" class="rounded-circle img-fluid img-profil" >
                             <h5 class="my-3 text-id text-capitalize">{{utilisateur.prenom}} {{utilisateur.nom}} </h5>
                         </div>
                         <div class="d-flex justify-content-center mb-2 my-5">
-                            <button type="button" [routerLink]="['/admin/publicProfil', utilisateur.id]" class="btn btn-secondary btn-lg btn-outline-secondary">Aperçu du profil SparingConnect</button>
+                            <button type="button" [routerLink]="['/admin/publicProfil', utilisateur.id]"
+                                class="btn btn-secondary btn-lg btn-outline-secondary">Aperçu du profil
+                                SparingConnect</button>
                         </div>
                     </div>
                     <hr />
                     <div>
                         <div class="info-bloc">
                             <div>
-                                <p class="info-bloc-text"><span class="info-bloc-icon"><img src="../../../assets/svg/localisation.svg" height="20" width="20"
+                                <p class="info-bloc-text"><span class="info-bloc-icon"><img
+                                            src="../../../assets/svg/localisation.svg" height="20" width="20"
                                             alt="localisation"></span> Localisation</p>
                             </div>
                             <div class="info-bloc-info text-capitalize">
@@ -26,16 +28,18 @@
                         </div>
                         <div class="info-bloc">
                             <div>
-                                <p class="info-bloc-text" ><span class="info-bloc-icon"><img src="../../../assets/svg/localisation.svg" height="20" width="20"
+                                <p class="info-bloc-text"><span class="info-bloc-icon"><img
+                                            src="../../../assets/svg/localisation.svg" height="20" width="20"
                                             alt="localisation"></span> Menbre depuis</p>
                             </div>
-                            <div class="info-bloc-info" >
-    
+                            <div class="info-bloc-info">
+
                             </div>
                         </div>
                         <div class="info-bloc">
                             <div>
-                                <p class="info-bloc-text" ><span class="info-bloc-icon"><img src="../../../assets/svg/localisation.svg" height="20" width="20"
+                                <p class="info-bloc-text"><span class="info-bloc-icon"><img
+                                            src="../../../assets/svg/localisation.svg" height="20" width="20"
                                             alt="localisation"></span>Age</p>
                             </div>
                             <div class="info-bloc-info">
@@ -43,6 +47,21 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="image-bloc-title">
+                    <p class="description-title">Photo de profil</p>
+                </div>
+                <div>
+                    <form (ngSubmit)="updateImage()" #registerForm="ngForm">
+                        <div class="input-file-bloc mb-3">
+                            <input class="form-control" type="file" (change)="onFileSelected($event)" id="formFile">
+                        </div>
+                        <div class="submit-file-bloc">
+                            <input type="submit" class="btn btn-dark">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -53,22 +72,26 @@
                         <p class="description-title">Description</p>
                     </div>
                     <div>
-                        <button type="button" class="btn btn-link description-btn text-capitalize" (click)="descriptionForm()" >Modifier la description</button>
+                        <button type="button" class="btn btn-link description-btn text-capitalize"
+                            (click)="descriptionForm()">Modifier la description</button>
                     </div>
                 </div>
                 <hr>
                 <div>
-                    <div *ngIf="checkDescription; then thenBlock else elseBlock " ></div>
+                    <div *ngIf="checkDescription; then thenBlock else elseBlock "></div>
                     <ng-template #thenBlock>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="description"></textarea>
-                            <div class="description-bloc-btn">
-                                <div class="col">
-                                    <button type="submit" (click)="descriptionForm()" class="btn btn-light btn-lg btn-block">Annuler</button>
-                                </div>
-                                <div class="col">
-                                    <button type="submit" (click)="onSubmit()" class="btn btn-dark btn-lg btn-block">Sauvegarder</button>
-                                </div>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                            [(ngModel)]="description"></textarea>
+                        <div class="description-bloc-btn">
+                            <div class="col">
+                                <button type="submit" (click)="descriptionForm()"
+                                    class="btn btn-light btn-lg btn-block">Annuler</button>
                             </div>
+                            <div class="col">
+                                <button type="submit" (click)="onSubmit()"
+                                    class="btn btn-dark btn-lg btn-block">Sauvegarder</button>
+                            </div>
+                        </div>
                     </ng-template>
                     <ng-template #elseBlock>
                         {{utilisateur.description}}
@@ -110,14 +133,16 @@
                                 {{profil.niveau}}
                             </div>
                         </div>
-                    </div>  
+                    </div>
                 </div>
                 <div class="btn-update-profil">
                     <div *ngIf="profil == null">
-                        <a routerLink="/admin/adminProfil"><button type="submit" class="btn btn-dark btn-lg">Ajouter</button></a> 
+                        <a routerLink="/admin/adminProfil"><button type="submit"
+                                class="btn btn-dark btn-lg">Ajouter</button></a>
                     </div>
                     <div *ngIf="profil != null">
-                        <a routerLink="/admin/profilUpdate"><button type="submit" class="btn btn-dark btn-lg">Modifier</button></a> 
+                        <a routerLink="/admin/profilUpdate"><button type="submit"
+                                class="btn btn-dark btn-lg">Modifier</button></a>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-  utilsiateur: Utilisateur
+  utilisateur: Utilisateur
   allUtilisateur: Utilisateur[] = [];
   allImages: any[] = [];
   allProfil: Profil[] = [];
@@ -31,7 +31,7 @@ export class AdminComponent {
     private navigation: NavigationService,
     private route: Router
   ) {
-    this.utilsiateur = new Utilisateur()
+    this.utilisateur = new Utilisateur()
   }
 
   toRegisterProfil(page: string) {
@@ -48,17 +48,8 @@ export class AdminComponent {
     this.route.navigate(['/admin/publicProfil', userId])
   }
 
-  getImageProfil(userId: string) {
-    this.imageService.getImageProfil(userId).subscribe(blob => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.urlImage[userId] = reader.result
-      };
-      reader.readAsDataURL(blob);
-    },
-      error => {
-        this.urlImage[userId] = `../../../assets/images/user.jpg`;
-      });
+   async getImageProfil(userId: string) {
+    this.urlImage[userId] = await this.imageService.getImageProfil(userId)
   };
 
   ngOnInit() {
@@ -79,17 +70,14 @@ export class AdminComponent {
       this.allUtilisateur = usersWithProfiles;
       this.allUtilisateur.forEach(user => {
         this.getImageProfil(user.id);
-        console.log(this.urlImage);
-        
       });
     });
 
-
     this.userService.decodeToken().subscribe(decodedData => {
       if (decodedData) {
-        this.utilsiateur = decodedData
-        if (this.utilsiateur.id != null) {
-          this.profilService.checkProfil(this.utilsiateur.id).subscribe(res => {
+        this.utilisateur = decodedData
+        if (this.utilisateur.id != null) {
+          this.profilService.checkProfil(this.utilisateur.id).subscribe(res => {
             this.isProfil = res;
           })
         } else {

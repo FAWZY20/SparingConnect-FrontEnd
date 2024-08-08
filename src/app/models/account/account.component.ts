@@ -26,10 +26,12 @@ export class AccountComponent {
 
   deleteUser(userId: string) {
     this.userService.deleteUser(this.utilisateur.id)
+
   }
 
   ngOnInit() {
     this.userService.decodeToken().subscribe(decodedData => {
+      
       if (decodedData) {
         this.utilisateur = decodedData
       }

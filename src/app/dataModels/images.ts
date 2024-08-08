@@ -4,5 +4,5 @@ export class Images{
     name!: string;
     type!: string;
     profilImg!: boolean;
-    images!: string;
+    images!: File;
 }

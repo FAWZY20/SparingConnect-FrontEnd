@@ -12,7 +12,7 @@ import { ProfilService } from './profil.service';
 })
 export class UserService {
   usersUrl: String = "";
-  statut:Boolean = false;
+  statut: Boolean = false;
   private authStatus = new BehaviorSubject<boolean>(this.hasToken());
   authStatus$ = this.authStatus.asObservable();
 
@@ -33,9 +33,9 @@ export class UserService {
     this.authStatus.next(this.hasToken());
   }
 
-  public getAllUser(): Observable<Utilisateur[]>{
+  public getAllUser(): Observable<Utilisateur[]> {
     return this.http.get<Utilisateur[]>(this.usersUrl + '/getAllUser')
-  } 
+  }
 
   public getUser(utilisateur: Utilisateur) {
     this.http.get<Utilisateur>(this.usersUrl + '/getUser/' + utilisateur.id)
@@ -84,7 +84,7 @@ export class UserService {
         if (res != null) {
           this.route.navigate(['/admin']);
           this.authStatus.next(true);
-        }else{
+        } else {
           localStorage.clear()
           this.route.navigate(['connexion']);
         }

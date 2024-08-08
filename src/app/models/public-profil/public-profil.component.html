@@ -3,8 +3,7 @@
         <div class="col-8">
             <div class="info-principal-bloc">
                 <div class="info-principal-bloc-img">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-                        class="rounded-circle img-fluid img-profil" height="130" width="130">
+                    <img [src]="urlImage" alt="avatar" class="rounded-circle img-fluid img-profil">
                 </div>
                 <div class="info-principal-bloc-text">
                     <div>
@@ -71,8 +70,7 @@
             <div class="contacter-bloc">
                 <div class="contact-info">
                     <div class="info-principal-bloc-img">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                            alt="avatar" class="rounded-circle img-fluid img-profil" height="50" width="50">
+                        <img [src]="urlImage" alt="avatar" class="rounded-circle img-fluid img-profil-bloc" height="70" width="70">
                     </div>
                     <div>
                         <p class="contact-identifiant text-capitalize">{{utilisateur.prenom}} {{utilisateur.nom}}</p>
