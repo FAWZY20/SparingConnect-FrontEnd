@@ -41,7 +41,7 @@ export class ImageService {
   updateImage(userId: string, file: File): Observable<any> {
      const formData: FormData = new FormData();
     formData.append('image', file);
-    return this.http.put<any>(this.usersUrl + `updateImage/${userId}`, formData)
+    return this.http.put<any>(this.usersUrl + `updateImageProfil/${userId}`, formData)
   }
 
 }
