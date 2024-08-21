@@ -5,6 +5,8 @@ import { BehaviorSubject, Observable, map, of } from 'rxjs';
 import { Router } from '@angular/router';
 import * as jwt_decode from "jwt-decode";
 import { ProfilService } from './profil.service';
+import { ImageService } from './image.service';
+import { Images } from '../dataModels/images';
 
 
 @Injectable({
@@ -15,12 +17,16 @@ export class UserService {
   statut: Boolean = false;
   private authStatus = new BehaviorSubject<boolean>(this.hasToken());
   authStatus$ = this.authStatus.asObservable();
+  image: Images;
+  imageFile!: File;
 
   constructor(
     private http: HttpClient,
     private profilService: ProfilService,
+    private imageService: ImageService,
     private route: Router,
   ) {
+    this.image = new Images();
     this.usersUrl = 'http://localhost:8085/gestionUtilisateur';
   }
 
@@ -51,8 +57,17 @@ export class UserService {
 
 
   public addUser(utilisateur: Utilisateur) {
-    this.http.post<Utilisateur>(this.usersUrl + '/addUser', utilisateur).subscribe(() => {
-      this.route.navigate(["connexion"])
+    const imageUrl = '../../assets/images/user.jpg';
+    
+    this.http.post<Utilisateur>(this.usersUrl + '/addUser', utilisateur).subscribe((res) => {
+      this.http.get(imageUrl, { responseType: 'blob' }).subscribe((blob: Blob) => {
+        this.imageFile = new File([blob], 'user.jpg', { type: blob.type });
+        
+        this.imageService.addImage(res.id, true, this.imageFile).subscribe(() =>
+          this.route.navigate(["connexion"])
+        )
+      
+      });
     })
   }
 

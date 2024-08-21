@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Images } from 'src/app/dataModels/images';
 import { Utilisateur } from 'src/app/dataModels/utilisateur';
 import { NavigationService } from 'src/app/services/navigation-service.service';
 import { UserService } from 'src/app/services/user.service';
@@ -10,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class InscriptionComponent {
   utilisateur: Utilisateur;
+  image: Images
   dateNaissance!: Date;
   erreurInscription: boolean = false;
   validInscription: boolean = false;
@@ -19,7 +21,8 @@ export class InscriptionComponent {
   constructor(
     private navigation: NavigationService,
     private userService: UserService
-  ) { 
+  ) {
+    this.image = new Images()
     this.utilisateur = new Utilisateur()
     this.dateNaissance = new Date()
   }
@@ -35,7 +38,7 @@ export class InscriptionComponent {
   }
 
   onSubmit() {
-    if (this.dateNaissance 
+    if (this.dateNaissance
       && this.utilisateur.prenom != ""
       && this.utilisateur.nom != ""
       && this.utilisateur.mail != "") {

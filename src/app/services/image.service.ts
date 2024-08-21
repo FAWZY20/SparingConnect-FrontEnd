@@ -15,8 +15,12 @@ export class ImageService {
     this.usersUrl = "http://localhost:8085/gestionUtilisateur/images/"
   }
 
-  addImage(image: Images): Observable<any>{
-    return this.http.post<Images>(this.usersUrl + "addImage", image)
+  addImage(userId: string, profil: boolean, file: File): Observable<any>{
+    const formData: FormData = new FormData();
+    formData.append('userid', userId.toString());
+    formData.append('profil', profil.toString());
+    formData.append('image', file);
+    return this.http.post<any>(this.usersUrl + "addImage", formData)
   }
 
   getimagesByUserId(userId: string): Observable<any>{
@@ -39,7 +43,7 @@ export class ImageService {
   }
   
   updateImage(userId: string, file: File): Observable<any> {
-     const formData: FormData = new FormData();
+    const formData: FormData = new FormData();
     formData.append('image', file);
     return this.http.put<any>(this.usersUrl + `updateImageProfil/${userId}`, formData)
   }
